@@ -27,3 +27,4 @@ int main(int argc, char *argv[]){
 	printf("%d/%d\n",ans,total);
 	return 0;
 }
+

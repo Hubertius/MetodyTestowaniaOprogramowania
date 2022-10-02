@@ -9,7 +9,7 @@ int my_printf(char *format_string, char *param){
 		if((format_string[i] == '#') && (format_string[i+1] == 'k'))
 		{
 			i++;
-			for(int j=0;i<strlen(param);j++)
+			for(int j=0; j<strlen(param); j++)
 			{
 				if(isalpha(param[j]))
 				{
@@ -35,3 +35,4 @@ int main(int argc, char *argv[]){
 	}
 	return 0;
 }
+
