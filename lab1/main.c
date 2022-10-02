@@ -14,9 +14,13 @@ int my_printf(char *format_string, char *param){
 				if(isalpha(param[j]))
 				{
 					if(islower(param[j]))
-						param[j] = (char) tolower(param[j]);
-					else
+					{
 						param[j] = (char) toupper(param[j]);
+					}
+					else
+					{
+						param[j] = (char) tolower(param[j]);
+					}
 				}
 				putchar(param[j]);
 			}
