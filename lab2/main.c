@@ -4,6 +4,9 @@
 #include <string.h>
 
 
+char covertUpperLower(char param);
+
+
 int my_printf(char *format_string, char *param){
 	for(int i=0; i<strlen(format_string); ++i)
 	{
@@ -11,18 +14,7 @@ int my_printf(char *format_string, char *param){
 		{
 			for(int j=0; j<strlen(param); j++)
 			{
-				if(isalpha(param[j]))
-				{
-					if(islower(param[j]))
-					{
-						param[j] = (char) toupper(param[j]);
-					}
-					else
-					{
-						param[j] = (char) tolower(param[j]);
-					}
-				}
-				putchar(param[j]);
+				putchar(covertUpperLower(param[j]));
 			} 
 			i++;
 		}
@@ -33,18 +25,7 @@ int my_printf(char *format_string, char *param){
 
 			for(int j= 0; j < howMuchCharacters; j++)
 			{
-				if(isalpha(param[j]))
-				{
-					if(islower(param[j]))
-					{
-						param[j] = (char) toupper(param[j]);
-					}
-					else
-					{
-						param[j] = (char) tolower(param[j]);
-					}
-				}
-				putchar(param[j]);
+				putchar(covertUpperLower(param[j]));
 			}
 			i += 3;
 		}
@@ -61,5 +42,21 @@ int main(int argc, char *argv[]){
 		my_printf(buf,buf2);
 	}
 	return 0;
+}
+
+char covertUpperLower(char param)
+{
+	if(isalpha(param))
+	{
+		if(islower(param))
+		{
+			param = (char) toupper(param);
+		}
+		else
+		{
+			param = (char) tolower(param);
+		}
+	} 
+	return param;
 }
 
