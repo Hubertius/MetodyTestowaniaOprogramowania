@@ -1,10 +1,10 @@
-totafsdfsf 121T21E21S21T fdsfsdf
-totafsd121T21E21S21T212 fdsfsdf fdfjs
+totafsdfsf TE fdsfsdf
+totafsdTE fdsfsdf fdfjs
 jfldjfldk # wynik
 fjdfsfds #.2 k alal
-djfjkldsjf 121T21E21S21T215 jjjjjj fsfjdljfdlsj flj ldfj
-gjjkdsljflds 121T21E21S21T216 jdlkfjdslf
-fjdslkfjdl 121T21E21S21T217 tttttt
-fjdlsjfkl 121T21E21S21T218 oooolll
-rwrewrew 121T21E21S21T219 fjdslkjfdl
-fjdlskjfldjflj 121T21E21S21T211210 rewrewrew
+djfjkldsjf TE jjjjjj fsfjdljfdlsj flj ldfj
+gjjkdsljflds TE jdlkfjdslf
+fjdslkfjdl TEST7 tttttt
+fjdlsjfkl TE oooolll
+rwrewrew TEST9 fjdslkjfdl
+fjdlskjfldjflj TE rewrewrew
