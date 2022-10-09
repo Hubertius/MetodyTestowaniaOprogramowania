@@ -1,20 +1,16 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include <string.h>
 
 
 int my_printf(char *format_string, char *param){
 	for(int i=0; i<strlen(format_string); ++i)
 	{
-		if((format_string[i] == '#') && (format_string[i+1] == '.') && isdigit((format_string[i+2])) && (format_string[i+3]) == 'k')
+		if((format_string[i] == '#') && (format_string[i+1] == 'k'))
 		{
-			i += 3;
-			putchar('1');
-			int howMuchCharacters = (int) format_string[i+2] > strlen(param) ? (int) strlen(param) : (int) format_string[i+2];
-			putchar((char) howMuchCharacters);
-			for(int j=0; j < howMuchCharacters; j++)
+			for(int j=0; j<strlen(param); j++)
 			{
-				putchar('2');
 				if(isalpha(param[j]))
 				{
 					if(islower(param[j]))
@@ -26,9 +22,31 @@ int my_printf(char *format_string, char *param){
 						param[j] = (char) tolower(param[j]);
 					}
 				}
-				putchar('1');
+				putchar(param[j]);
+			} 
+			i++;
+		}
+		else if((format_string[i] == '#') && (format_string[i+1] == '.') && isdigit((format_string[i+2])) && (format_string[i+3]) == 'k')
+		{
+			char forAtoiConvertion[2] = {format_string[i+2], '\0'};
+			int howMuchCharacters =  atoi(forAtoiConvertion) < strlen(param) ? atoi(forAtoiConvertion) : strlen(param);
+
+			for(int j= 0; j < howMuchCharacters; j++)
+			{
+				if(isalpha(param[j]))
+				{
+					if(islower(param[j]))
+					{
+						param[j] = (char) toupper(param[j]);
+					}
+					else
+					{
+						param[j] = (char) tolower(param[j]);
+					}
+				}
 				putchar(param[j]);
 			}
+			i += 3;
 		}
 		else
 			putchar(format_string[i]);
