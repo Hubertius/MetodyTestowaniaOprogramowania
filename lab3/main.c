@@ -29,6 +29,10 @@ int my_printf(char *format_string, char *param){
 			}
 			i += 3;
 		}
+		else if((format_string[i] == '#') &&  (format_string[i+3]) == 'k')
+		{
+
+		}
 		else
 			putchar(format_string[i]);
 	}
