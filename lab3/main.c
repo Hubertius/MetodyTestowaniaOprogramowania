@@ -29,7 +29,7 @@ int my_printf(char *format_string, char *param){
 			}
 			i += 3;
 		}
-		else if((format_string[i] == '#') &&  (format_string[i+3]) == 'k')
+		else if((format_string[i] == '#') && (format_string[i+1] == '.') && isdigit((format_string[i+2])) && (format_string[i+3]) == 'k')
 		{
 
 		}
