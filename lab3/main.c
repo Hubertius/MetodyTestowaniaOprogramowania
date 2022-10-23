@@ -31,7 +31,14 @@ int my_printf(char *format_string, char *param){
 		}
 		else if((format_string[i] == '#') && isdigit((format_string[i+1])) && (format_string[i+2]) == 'k')
 		{
+			char forAtoiConvertion[2] = {format_string[i+1], '\0'};
+			int howMuchCharacters =  atoi(forAtoiConvertion) < strlen(param) ? atoi(forAtoiConvertion) : strlen(param);
 
+			for(int j= 0; j < howMuchCharacters; j++)
+			{
+				putchar(covertUpperLower(param[j]));
+			}
+			i += 2;
 		}
 		else
 			putchar(format_string[i]);
