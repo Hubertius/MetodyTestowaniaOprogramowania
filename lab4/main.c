@@ -81,4 +81,20 @@ void sortNumbersAscending(int number[], int count)
    }
 }
 
+void sortNumbersDescending(int number[], int count)
+{
+   int i, j, k;
+   for (j = 0; j < count; ++j)
+   {
+      for (k = j + 1; k < count; ++k)
+      {
+         if (number[j] < number[k])
+         {
+            int temp = number[j];
+            number[j] = number[k];
+            number[k] = temp;
+         }
+      }
+   }
+}
 
