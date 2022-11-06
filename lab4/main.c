@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <errno.h>
+#include <limits.h>
 
 void sortNumbersAscending(int number[], int count);
 void sortNumbersDescending(int number[], int count);
@@ -12,13 +14,14 @@ int my_printf(char *format_string, char *param){
 	{
 		if((format_string[i] == '#') && (format_string[i+1] == 'g'))
 		{
-			if(strtol(param, NULL, 10))
+			char * end;
+			int convertedNumber = (int) (strtol(param, &end, 10));
+			if(errno || *end != '\0' || convertedNumber < INT_MIN || convertedNumber > INT_MAX) // checking if conversion to number was successful
 			{
 			 	bool isAscending = false;
-				int baseNumber = (int) (strtol(param, NULL, 10));
-				int temp = baseNumber%10;
-				int loopBaseNumber = baseNumber;
-				while (loopBaseNumber / 10 > 0)
+				int temp = convertedNumber%10;
+				int loopBaseNumber = convertedNumber;
+				while (loopBaseNumber / 10 > 0) // checking if numbers is in 100% ascending order
 				{
 					loopBaseNumber /= 10;
 					if (temp < loopBaseNumber % 10)
@@ -28,16 +31,16 @@ int my_printf(char *format_string, char *param){
 					}
 				}
 				int arr[strlen(param)];
-				do {
-					arr[i] = baseNumber % 10;
-					baseNumber /= 10;
+				do { // filling int arr[] with digits of a number
+					arr[i] = convertedNumber % 10;
+					convertedNumber /= 10;
 					i++;
-				} while (baseNumber != 0);
-				if(isAscending) 
+				} while (convertedNumber != 0);
+				if(isAscending) // converstion to full ascending
 				{
 					sortNumbersAscending(arr,strlen(param));
 				} 
-				else 
+				else  // converstion to full descending
 				{
 					sortNumbersDescending(arr,strlen(param));
 				}
