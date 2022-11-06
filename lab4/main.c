@@ -16,6 +16,12 @@ int my_printf(char *format_string, char *param){
 		{
 			char * end;
 			int convertedNumber = (int) (strtol(param, &end, 10));
+			bool wasNegative = false;
+			if(convertedNumber < 0)
+			{
+				convertedNumber *= -1;
+				wasNegative = true;
+			}
 			if(*end == '\0') // checking if conversion to number was successful
 			{
 			 	bool isAscending = false;
@@ -37,9 +43,20 @@ int my_printf(char *format_string, char *param){
 					convertedNumber /= 10;
 					j++;
 				} while (convertedNumber != 0);
-				for(j = 0; j < strlen(param); j++)
+				if(wasNegative)
 				{
-					printf("%d", arr[j]);
+					printf("-");
+					for(j = 0; j < (strlen(param)-1); j++)
+					{
+						printf("%d", arr[j]);
+					}
+				}
+				else 
+				{
+					for(j = 0; j < strlen(param); j++)
+					{
+						printf("%d", arr[j]);
+					}
 				}
 			}
 			else 
