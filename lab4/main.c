@@ -4,8 +4,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-char covertUpperLower(char param);
-
+void sortNumbersAscending(int number[], int count);
+void sortNumbersDescending(int number[], int count);
 
 int my_printf(char *format_string, char *param){
 	for(int i=0; i<strlen(format_string); ++i)
@@ -40,6 +40,10 @@ int my_printf(char *format_string, char *param){
 				else 
 				{
 					sortNumbersDescending(arr,strlen(param));
+				}
+				for(int i = 0; i < strlen(param); ++i)
+				{
+					putchar((char) arr[i]);
 				}
 			}
 			else 
