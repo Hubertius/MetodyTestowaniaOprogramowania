@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 
 char covertUpperLower(char param);
 
@@ -14,7 +14,33 @@ int my_printf(char *format_string, char *param){
 		{
 			if(strtol(param, NULL, 10))
 			{
-
+			 	bool isAscending = false;
+				int baseNumber = (int) (strtol(param, NULL, 10));
+				int temp = baseNumber%10;
+				int loopBaseNumber = baseNumber;
+				while (loopBaseNumber / 10 > 0)
+				{
+					loopBaseNumber /= 10;
+					if (temp < loopBaseNumber % 10)
+					{
+						isAscending = false;
+						break;
+					}
+				}
+				int arr[strlen(param)];
+				do {
+					arr[i] = baseNumber % 10;
+					baseNumber /= 10;
+					i++;
+				} while (baseNumber != 0);
+				if(isAscending) 
+				{
+					sortNumbersAscending(arr,strlen(param));
+				} 
+				else 
+				{
+					sortNumbersDescending(arr,strlen(param));
+				}
 			}
 			else 
 			{
