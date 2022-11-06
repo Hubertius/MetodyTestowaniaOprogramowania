@@ -10,35 +10,18 @@ char covertUpperLower(char param);
 int my_printf(char *format_string, char *param){
 	for(int i=0; i<strlen(format_string); ++i)
 	{
-		if((format_string[i] == '#') && (format_string[i+1] == 'k'))
+		if((format_string[i] == '#') && (format_string[i+1] == 'g'))
 		{
-			for(int j=0; j<strlen(param); j++)
+			if(strtol(param, NULL, 10))
 			{
-				putchar(covertUpperLower(param[j]));
-			} 
+
+			}
+			else 
+			{
+				printf("Passing #g as number failed due to \"param\" %s not being convertable to number! Ending program!", param);
+				return 1;
+			}
 			i++;
-		}
-		else if((format_string[i] == '#') && (format_string[i+1] == '.') && isdigit((format_string[i+2])) && (format_string[i+3]) == 'k')
-		{
-			char forAtoiConvertion[2] = {format_string[i+2], '\0'};
-			int howMuchCharacters =  atoi(forAtoiConvertion) < strlen(param) ? atoi(forAtoiConvertion) : strlen(param);
-
-			for(int j= 0; j < howMuchCharacters; j++)
-			{
-				putchar(covertUpperLower(param[j]));
-			}
-			i += 3;
-		}
-		else if((format_string[i] == '#') && isdigit((format_string[i+1])) && (format_string[i+2]) == 'k')
-		{
-			char forAtoiConvertion[2] = {format_string[i+1], '\0'};
-			int howMuchCharacters =  atoi(forAtoiConvertion) < strlen(param) ? atoi(forAtoiConvertion) : strlen(param);
-
-			for(int j= 0; j < howMuchCharacters; j++)
-			{
-				putchar(covertUpperLower(param[j]));
-			}
-			i += 2;
 		}
 		else
 			putchar(format_string[i]);
@@ -55,19 +38,5 @@ int main(int argc, char *argv[]){
 	return 0;
 }
 
-char covertUpperLower(char param)
-{
-	if(isalpha(param))
-	{
-		if(islower(param))
-		{
-			param = (char) toupper(param);
-		}
-		else
-		{
-			param = (char) tolower(param);
-		}
-	} 
-	return param;
-}
+
 
