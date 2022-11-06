@@ -22,7 +22,7 @@ int my_printf(char *format_string, char *param){
 				convertedNumber *= -1;
 				wasNegative = true;
 			}
-			if(*end == '\0') // checking if conversion to number was successful
+			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
 			{
 			 	bool isAscending = false;
 				int temp = convertedNumber%10;
@@ -61,7 +61,7 @@ int my_printf(char *format_string, char *param){
 			}
 			else 
 			{
-				return 1;
+				printf("ERROR, not a number to convert");
 			}
 			i++;
 		}

@@ -1,1 +1,10 @@
-
+totafsdfsf 21 fdsfsdf
+totafsdfsf # g fdsfsdf
+totafsdfsf 12 fdsfsdf
+totafsdfsf # g fdsfsdf
+totafsdfsf -21 fdsfsdf
+totafsdfsf g# fdsfsdf
+totafsdfsf ERROR, not a number to convert fdsfsdf
+12 1231213123
+totafsdfsf -8
+SOMETHING SOMETHING
