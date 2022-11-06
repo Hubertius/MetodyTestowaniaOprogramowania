@@ -16,7 +16,7 @@ int my_printf(char *format_string, char *param){
 		{
 			char * end;
 			int convertedNumber = (int) (strtol(param, &end, 10));
-			if(errno || *end != '\0' || convertedNumber < INT_MIN || convertedNumber > INT_MAX) // checking if conversion to number was successful
+			if(*end == '\0') // checking if conversion to number was successful
 			{
 			 	bool isAscending = false;
 				int temp = convertedNumber%10;
@@ -31,27 +31,19 @@ int my_printf(char *format_string, char *param){
 					}
 				}
 				int arr[strlen(param)];
-				do { // filling int arr[] with digits of a number
-					arr[i] = convertedNumber % 10;
+				int j = 0;
+				do { // filling int arr[] with digits of a converted number
+					arr[j] = convertedNumber % 10;
 					convertedNumber /= 10;
-					i++;
+					j++;
 				} while (convertedNumber != 0);
-				if(isAscending) // converstion to full ascending
+				for(j = 0; j < strlen(param); j++)
 				{
-					sortNumbersAscending(arr,strlen(param));
-				} 
-				else  // converstion to full descending
-				{
-					sortNumbersDescending(arr,strlen(param));
-				}
-				for(int i = 0; i < strlen(param); ++i)
-				{
-					putchar((char) arr[i]);
+					printf("%d", arr[j]);
 				}
 			}
 			else 
 			{
-				printf("Passing #g as number failed due to \"param\" %s not being convertable to number! Ending program!", param);
 				return 1;
 			}
 			i++;
@@ -69,39 +61,5 @@ int main(int argc, char *argv[]){
 		my_printf(buf,buf2);
 	}
 	return 0;
-}
-
-void sortNumbersAscending(int number[], int count)
-{
-   int i, j, k;
-   for (j = 0; j < count; ++j)
-   {
-      for (k = j + 1; k < count; ++k)
-      {
-         if (number[j] > number[k])
-         {
-            int temp = number[j];
-            number[j] = number[k];
-            number[k] = temp;
-         }
-      }
-   }
-}
-
-void sortNumbersDescending(int number[], int count)
-{
-   int i, j, k;
-   for (j = 0; j < count; ++j)
-   {
-      for (k = j + 1; k < count; ++k)
-      {
-         if (number[j] < number[k])
-         {
-            int temp = number[j];
-            number[j] = number[k];
-            number[k] = temp;
-         }
-      }
-   }
 }
 
