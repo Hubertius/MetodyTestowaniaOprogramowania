@@ -47,13 +47,50 @@ int my_printf(char *format_string, char *param){
 				{
 					printf("%d", arr[j]);
 				}
-				
 			}
 			else 
 			{
 				printf("ERROR, not a number to convert");
 			}
 			i += 2;
+		}
+		else if((format_string[i] == '#') &&  (format_string[i+1] == 'g'))
+		{
+			char * end;
+			int convertedNumber = (int) (strtol(param, &end, 10));
+			bool wasNegative = false;
+			if(convertedNumber < 0)
+			{
+				convertedNumber *= -1;
+				wasNegative = true;
+			}
+			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
+			{
+				int arr[strlen(param)];
+				int j = 0;
+				do { // filling int arr[] with digits of a converted number
+					int catchedDigit = (convertedNumber % 10)-1;
+					if(catchedDigit == 0)
+						arr[j] = 9;
+					else
+						arr[j] = catchedDigit;
+					convertedNumber /= 10;
+					j++;
+				} while (convertedNumber != 0);
+				if(wasNegative)
+				{
+					printf("-");
+				}
+				for(j = strlen(param)-1; j >= 0; --j)
+				{
+					printf("%d", arr[j]);
+				}
+			}
+			else 
+			{
+				printf("ERROR, not a number to convert");
+			}
+			++i;
 		}
 		else
 			putchar(format_string[i]);
