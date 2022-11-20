@@ -35,6 +35,10 @@ int my_printf(char *format_string, char *param){
 					convertedNumber /= 10;
 					j++;
 				} while (convertedNumber != 0);
+				if(wasNegative)
+				{
+					printf("-");
+				}
 				
 			}
 			else 
