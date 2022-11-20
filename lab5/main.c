@@ -39,6 +39,14 @@ int my_printf(char *format_string, char *param){
 				{
 					printf("-");
 				}
+				int howManyDigitsToPrint = format_string[i+1] - '0';
+				int countOfDigits = 0;
+				if(howManyDigitsToPrint > strlen(param))
+					howManyDigitsToPrint = strlen(param);
+				for(j = strlen(param)-1; j >= 0 && countOfDigits < howManyDigitsToPrint; --j, ++countOfDigits)
+				{
+					printf("%d", arr[j]);
+				}
 				
 			}
 			else 
