@@ -24,6 +24,18 @@ int my_printf(char *format_string, char *param){
 			}
 			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
 			{
+				int arr[strlen(param)];
+				int j = 0;
+				do { // filling int arr[] with digits of a converted number
+					int catchedDigit = (convertedNumber % 10)-1;
+					if(catchedDigit == 0)
+						arr[j] = 9;
+					else
+						arr[j] = catchedDigit;
+					convertedNumber /= 10;
+					j++;
+				} while (convertedNumber != 0);
+				
 			}
 			else 
 			{
