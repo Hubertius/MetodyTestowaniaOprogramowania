@@ -14,7 +14,22 @@ int my_printf(char *format_string, char *param){
 	{
 		if((format_string[i] == '#') &&  isdigit((format_string[i+1])) && (format_string[i+2] == 'g'))
 		{
-
+			char * end;
+			int convertedNumber = (int) (strtol(param, &end, 10));
+			bool wasNegative = false;
+			if(convertedNumber < 0)
+			{
+				convertedNumber *= -1;
+				wasNegative = true;
+			}
+			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
+			{
+			}
+			else 
+			{
+				printf("ERROR, not a number to convert");
+			}
+			i += 2;
 		}
 		else
 			putchar(format_string[i]);
