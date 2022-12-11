@@ -2,3 +2,7 @@ totafsdfsf #2g fdsfsdf
 12
 totafsdfsf #3g fdsfsdf
 12
+totafsdfsf #.2g fdsfsdf
+12
+totafsdfsf #.3g fdsfsdf
+12
