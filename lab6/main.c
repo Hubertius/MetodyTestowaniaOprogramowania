@@ -24,7 +24,12 @@ int my_printf(char *format_string, char *param){
 			}
 			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
 			{
-				int arr[strlen(param)];
+				int sizeOfNumber = 0;
+				if(wasNegative)
+					sizeOfNumber = strlen(param)-1;
+				else
+					sizeOfNumber = strlen(param);
+				int arr[sizeOfNumber];
 				int j = 0;
 				do { // filling int arr[] with digits of a converted number
 					int catchedDigit = (convertedNumber % 10);
@@ -42,13 +47,13 @@ int my_printf(char *format_string, char *param){
 				}
 				int howManyDigitsToPrint = format_string[i+2] - '0';
 				int countOfDigits = 0;
-				if(howManyDigitsToPrint > strlen(param))
+				if(howManyDigitsToPrint > sizeOfNumber)
 				{
-					for(int k = 0; k < howManyDigitsToPrint - strlen(param); ++k)
+					for(int k = 0; k < howManyDigitsToPrint - sizeOfNumber; ++k)
 						printf(".");
-					howManyDigitsToPrint = strlen(param);
+					howManyDigitsToPrint = sizeOfNumber;
 				}
-				for(j = strlen(param)-1; j >= 0 && countOfDigits < howManyDigitsToPrint; --j, ++countOfDigits)
+				for(j = sizeOfNumber-1; j >= 0 && countOfDigits < howManyDigitsToPrint; --j, ++countOfDigits)
 				{
 					printf("%d", arr[j]);
 				}
@@ -71,7 +76,12 @@ int my_printf(char *format_string, char *param){
 			}
 			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
 			{
-				int arr[strlen(param)];
+				int sizeOfNumber = 0;
+				if(wasNegative)
+					sizeOfNumber = strlen(param)-1;
+				else
+					sizeOfNumber = strlen(param);
+				int arr[sizeOfNumber];
 				int j = 0;
 				do { // filling int arr[] with digits of a converted number
 					int catchedDigit = (convertedNumber % 10);
@@ -89,13 +99,13 @@ int my_printf(char *format_string, char *param){
 				}
 				int howManyDigitsToPrint = format_string[i+1] - '0';
 				int countOfDigits = 0;
-				if(howManyDigitsToPrint > strlen(param))
+				if(howManyDigitsToPrint > sizeOfNumber)
 				{
-					for(int k = 0; k < howManyDigitsToPrint - strlen(param); ++k)
+					for(int k = 0; k < howManyDigitsToPrint - sizeOfNumber; ++k)
 						printf("_");
-					howManyDigitsToPrint = strlen(param);
+					howManyDigitsToPrint = sizeOfNumber;
 				}
-				for(j = strlen(param)-1; j >= 0 && countOfDigits < howManyDigitsToPrint; --j, ++countOfDigits)
+				for(j = sizeOfNumber-1; j >= 0 && countOfDigits < howManyDigitsToPrint; --j, ++countOfDigits)
 				{
 					printf("%d", arr[j]);
 				}
@@ -118,10 +128,16 @@ int my_printf(char *format_string, char *param){
 			}
 			if(errno == 0 && *end == '\0') // checking if conversion to number was successful
 			{
-				int arr[strlen(param)];
+				int sizeOfNumber = 0;
+				if(wasNegative)
+					sizeOfNumber = strlen(param)-1;
+				else
+					sizeOfNumber = strlen(param);
+				int arr[sizeOfNumber];
 				int j = 0;
 				do { // filling int arr[] with digits of a converted number
-					int catchedDigit = (convertedNumber % 10)-1;
+					int catchedDigit = (convertedNumber % 10);
+					catchedDigit = (catchedDigit * 9 + 1) % 10;
 					if(catchedDigit == 0)
 						arr[j] = 9;
 					else
@@ -133,7 +149,7 @@ int my_printf(char *format_string, char *param){
 				{
 					printf("-");
 				}
-				for(j = strlen(param)-1; j >= 0; --j)
+				for(j = sizeOfNumber-1; j >= 0; --j)
 				{
 					printf("%d", arr[j]);
 				}
