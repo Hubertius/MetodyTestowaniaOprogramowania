@@ -4,3 +4,5 @@ totafsdfsf 99 fdsfsdf
 totafsdfsf .99 fdsfsdf
 totafsdfsf  fdsfsdf
 totafsdfsf 99999 fdsfsdf
+totafsdfsf 999 fdsfsdf
+totafsdfsf -99 fdsfsdf
