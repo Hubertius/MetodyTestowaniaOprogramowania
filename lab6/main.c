@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <stdbool.h>
 #include <errno.h>
-#include <limits.h>
 
 void sortNumbersAscending(int number[], int count);
 void sortNumbersDescending(int number[], int count);
