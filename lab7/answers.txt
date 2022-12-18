@@ -6,3 +6,4 @@ test #.j test
 test ERROR, not a number to convert test
 test ERROR, not a number to convert test
 test 1 test
+test g test
