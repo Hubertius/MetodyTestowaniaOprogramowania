@@ -1,3 +1,6 @@
 test i test
 test 1jji9h9 test
 1jji9hgtest 1jji9hg test
+test j# test
+test #.j test
+test ERROR, not a number to convert test
