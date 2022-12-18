@@ -6,3 +6,4 @@ test #j test
 31312314
 test j# test
 575765
+test #.j test
