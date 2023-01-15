@@ -7,3 +7,4 @@ test6 #g test6
 test7 j test7
 test8  test8
 test9 ioj1j test9
+test10 #^.j test10

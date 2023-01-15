@@ -16,3 +16,5 @@ test8 #.0j test8
 12345
 test9 #.5j test9
 789789
+test10 #^.j test10
+12345
