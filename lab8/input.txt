@@ -1,20 +1,16 @@
-TEST1 #j text after test
+test1 #j test1
 132456789
-TEST2 #.5j text after test
+test2 #.5j test2
 12345
-TEST3 #.3j text after test
+test3 #.3j test3
 12345
-TEST4 #4j text after test
+test4 #4j test4
 12345
-TEST5 #j text after test
+test5 #j test5
 12345
-TEST6 #g text after test
+test6 #g test6
 12345
-TEST7 j text after test
+test7 j test7
 12345
-
-
-
-
-
-
+test8 #.0j test8
+12345
