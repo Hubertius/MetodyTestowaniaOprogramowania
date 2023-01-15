@@ -14,3 +14,5 @@ test7 j test7
 12345
 test8 #.0j test8
 12345
+test9 #.5j test9
+789789
