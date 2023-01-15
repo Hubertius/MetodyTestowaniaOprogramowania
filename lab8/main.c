@@ -10,7 +10,7 @@ void sortNumbersDescending(int number[], int count);
 int my_printf(char *format_string, char *param){
 	for(int i=0; i<strlen(format_string); ++i)
 	{
-		if((format_string[i] == '#') &&  (format_string[i+1] == 'j'))
+		if((format_string[i] == '#') && (format_string[i+1] == '.') && isdigit((format_string[i+2])) && (format_string[i+3] == 'j'))
 		{
 			char * end;
 			int convertedNumber = (int) (strtol(param, &end, 10));
@@ -23,14 +23,17 @@ int my_printf(char *format_string, char *param){
 					tmpNumber /= 10;
 					++countDigits;
 				} while (tmpNumber != 0);
-				
 				char arr[countDigits];
 				sprintf(arr, "%x", convertedNumber);
+				countDigits = strlen(arr);
 				int j = 0;
-				while(j < strlen(arr))
+				int howManyDigitsToPrint = format_string[i+2] - '0';
+				while(j < countDigits && j < howManyDigitsToPrint)
 				{
 					char ch = arr[j];
-					if(ch == 'a')
+					if(ch == '0')
+						printf("o");
+					else if(ch == 'a')
 						printf("g");
 					else if(ch == 'b')
 						printf("h");
@@ -46,12 +49,8 @@ int my_printf(char *format_string, char *param){
 						printf("%c", ch);
 					++j;
 				}
+				i += 3;
 			}
-			else
-			{
-				printf("ERROR, not a number to convert");
-			}
-			++i;
 		}
 		else
 			putchar(format_string[i]);
